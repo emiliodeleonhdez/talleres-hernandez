@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx shadcn@latest add input --yes)",
+      "Bash(npx shadcn@latest add label --yes)",
+      "Bash(npx shadcn@latest add select --yes)",
+      "Bash(npx shadcn@latest add textarea --yes)",
+      "Bash(npx shadcn@latest add card --yes)",
+      "Bash(npx shadcn@latest add badge --yes)",
+      "Bash(npx shadcn@latest add table --yes)",
+      "Bash(npx shadcn@latest add separator --yes)",
+      "Bash(npx shadcn@latest add dialog --yes)",
+      "Bash(npx shadcn@latest add sheet --yes)",
+      "Bash(npx shadcn@latest add alert-dialog --yes)",
+      "Bash(npx shadcn@latest add tabs --yes)",
+      "Bash(npx shadcn@latest add toggle --yes)",
+      "Bash(npx shadcn@latest add avatar --yes)"
+    ]
+  }
+}
