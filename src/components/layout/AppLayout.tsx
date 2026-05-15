@@ -13,7 +13,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
       <div className="flex flex-1 flex-col overflow-hidden min-w-0">
         <AppHeader />
 
-        <main data-slot="app-body" className="flex-1 overflow-y-auto">
+        <main data-slot="app-body" className="flex-1 overflow-y-auto bg-muted">
           {children}
         </main>
 
