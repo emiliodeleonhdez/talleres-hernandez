@@ -3,13 +3,15 @@ import {
   BanknoteIcon,
   HomeIcon,
   PackageIcon,
-  PlusIcon,
   UsersIcon,
 } from "lucide-react";
 import { NavItem } from "./components/nav-item";
-import { NavAction } from "./components/nav-action";
+import { useState } from "react";
+import { OrderDialog } from "@/components/ordenes/order-dialog";
 
 export function AppFooter() {
+  const [isNewOrderDialogOpen, setisNewOrderDialogOpen] = useState(false);
+
   return (
     <footer
       data-slot="app-footer"
@@ -17,10 +19,9 @@ export function AppFooter() {
     >
       <NavItem href="/" icon={HomeIcon} label="Inicio" />
       <NavItem href="/clientes" icon={UsersIcon} label="Clientes" />
-      <NavAction
-        icon={PlusIcon}
-        label="Nueva Orden"
-        props={{ variant: "ghost" }}
+      <OrderDialog
+        open={isNewOrderDialogOpen}
+        onOpenChange={setisNewOrderDialogOpen}
       />
       <NavItem href="/inventario" icon={PackageIcon} label="Inventario" />
       <NavItem href="/caja" icon={BanknoteIcon} label="Caja" />
