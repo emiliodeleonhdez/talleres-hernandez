@@ -19,7 +19,7 @@ export function AppFooter() {
       <NavItem href="/clientes" icon={UsersIcon} label="Clientes" />
       <NavAction
         icon={PlusIcon}
-        label="Nueva orden"
+        label="Nueva Orden"
         props={{ variant: "ghost" }}
       />
       <NavItem href="/inventario" icon={PackageIcon} label="Inventario" />
