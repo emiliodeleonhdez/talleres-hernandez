@@ -20,6 +20,12 @@
   --color-sidebar: var(--sidebar);
   --color-brand: var(--brand);
   --color-fofo: var(--fofo);
+  --color-warning: var(--warning);
+  --color-ready: var(--ready);
+  --color-received: var(--received);
+  --color-received-fg: var(--received-fg);
+  --color-delivered: var(--delivered);
+  --color-delivered-fg: var(--delivered-fg);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -77,6 +83,12 @@
   --radius: 0.625rem;
   --brand: oklch(0.3462 0.0736 256.04);
   --fofo: oklch(0.4084 0.1165 38.17);
+  --warning: oklch(0.9619 0.058 95.62);
+  --ready: oklch(0.9319 0.0316 255.59);
+  --received: oklch(0.9251 0.0071 88.65);
+  --received-fg: oklch(0.3741 0.0087 67.56);
+  --delivered: oklch(0.9505 0.0507 163.05);
+  --delivered-fg: oklch(0.4318 0.0865 166.91);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);

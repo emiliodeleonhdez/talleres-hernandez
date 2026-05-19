@@ -1,4 +1,6 @@
+import { OrderList } from "@/components/shared/order-list";
 import { StatCard } from "@/components/shared/stat-card";
+import { mockOrders } from "@/lib/mock-orders";
 import { CheckCircle, Clock, Package, ShieldCheck } from "lucide-react";
 
 export default function Home() {
@@ -15,6 +17,9 @@ export default function Home() {
         <StatCard label="En proceso" value={6} icon={Clock} />
         <StatCard label="Listas para entregar" value={4} icon={Package} />
         <StatCard label="Entregadas hoy" value={14} icon={CheckCircle} />
+      </div>
+      <div className="md:hidden">
+        <OrderList orders={mockOrders} />
       </div>
     </div>
   );

@@ -1,0 +1,81 @@
+import type { Order } from "@/components/shared/order-list";
+
+export const mockOrders: Order[] = [
+  {
+    id: "OF-02345",
+    status: "en-proceso",
+    customer: "Carnicería La Esperanza",
+    product: "Cuchilla Circular 14",
+    deliveryTime: "15:30",
+  },
+  {
+    id: "OF-02346",
+    status: "listo",
+    customer: "Restaurante El Rincón",
+    product: "Cuchilla Recta 12",
+    deliveryTime: "16:00",
+  },
+  {
+    id: "OF-02347",
+    status: "recibido",
+    customer: "Supermercado Central",
+    product: "Cuchilla Sierra 18",
+    deliveryTime: "13:45",
+  },
+  {
+    id: "OF-02348",
+    status: "entregada",
+    customer: "Frigorífico San Martín",
+    product: "Cuchilla Deshuesadora",
+    deliveryTime: "11:00",
+  },
+  {
+    id: "OF-02349",
+    status: "en-proceso",
+    customer: "Pollería Los Andes",
+    product: "Cuchilla Circular 10",
+    deliveryTime: "17:15",
+  },
+  {
+    id: "OF-02350",
+    status: "listo",
+    customer: "Carnicería Don Pedro",
+    product: "Cuchilla Recta 8",
+    deliveryTime: "15:00",
+  },
+  {
+    id: "OF-02351",
+    status: "recibido",
+    customer: "Mercado Municipal",
+    product: "Cuchilla Circular 16",
+    deliveryTime: "12:30",
+  },
+  {
+    id: "OF-02352",
+    status: "entregada",
+    customer: "Hotel Las Palmas",
+    product: "Cuchilla Fileteadora",
+    deliveryTime: "09:30",
+  },
+  {
+    id: "OF-02353",
+    status: "en-proceso",
+    customer: "Asadero El Gaucho",
+    product: "Cuchilla Sierra 14",
+    deliveryTime: "18:00",
+  },
+  {
+    id: "OF-02354",
+    status: "listo",
+    customer: "Supermercado Norte",
+    product: "Cuchilla Circular 12",
+    deliveryTime: "16:30",
+  },
+  {
+    id: "OF-02355",
+    status: "recibido",
+    customer: "Carnicería La Familia",
+    product: "Cuchilla Recta 10",
+    deliveryTime: "14:00",
+  },
+];

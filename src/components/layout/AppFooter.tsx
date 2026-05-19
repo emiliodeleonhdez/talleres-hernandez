@@ -1,6 +1,13 @@
 "use client";
-import { BanknoteIcon, HomeIcon, PackageIcon, ShoppingCartIcon, UsersIcon } from "lucide-react";
+import {
+  BanknoteIcon,
+  HomeIcon,
+  PackageIcon,
+  PlusIcon,
+  UsersIcon,
+} from "lucide-react";
 import { NavItem } from "./components/nav-item";
+import { NavAction } from "./components/nav-action";
 
 export function AppFooter() {
   return (
@@ -10,7 +17,11 @@ export function AppFooter() {
     >
       <NavItem href="/" icon={HomeIcon} label="Inicio" />
       <NavItem href="/clientes" icon={UsersIcon} label="Clientes" />
-      <NavItem href="/ordenes" icon={ShoppingCartIcon} label="Órdenes" />
+      <NavAction
+        icon={PlusIcon}
+        label="Nueva orden"
+        props={{ variant: "ghost" }}
+      />
       <NavItem href="/inventario" icon={PackageIcon} label="Inventario" />
       <NavItem href="/caja" icon={BanknoteIcon} label="Caja" />
     </footer>
