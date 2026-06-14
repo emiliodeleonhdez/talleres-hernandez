@@ -3,17 +3,12 @@
 import { XIcon } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import type { Client } from "@/lib/mock-clients";
+import { getInitials } from "@/lib/format";
+import type { Customer } from "@/lib/mock-data/types";
 
 interface ClientAvatarProps {
-  client: Client;
+  client: Customer;
   onClear: () => void;
-}
-
-function getInitials(name: string): string {
-  const words = name.trim().split(/\s+/);
-  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-  return (words[0][0] + words[words.length - 1][0]).toUpperCase();
 }
 
 export function ClientAvatar({ client, onClear }: ClientAvatarProps) {
@@ -21,7 +16,9 @@ export function ClientAvatar({ client, onClear }: ClientAvatarProps) {
     <div className="flex items-center justify-between rounded-lg border border-border p-3">
       <div className="flex items-center gap-3">
         <Avatar>
-          <AvatarFallback>{getInitials(client.name)}</AvatarFallback>
+          <AvatarFallback className="bg-sub-nav-bg text-brand text-xs font-semibold">
+            {getInitials(client.name)}
+          </AvatarFallback>
         </Avatar>
         <div className="flex flex-col gap-0.5">
           <span className="text-sm font-medium leading-none">{client.name}</span>

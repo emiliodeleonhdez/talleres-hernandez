@@ -2,29 +2,39 @@
 import {
   BanknoteIcon,
   HomeIcon,
-  PackageIcon,
+  PlusIcon,
+  ScrollTextIcon,
   UsersIcon,
 } from "lucide-react";
-import { NavItem } from "./components/nav-item";
 import { useState } from "react";
-import { OrderDialog } from "@/components/ordenes/order-dialog";
+import { NewOrderDialog } from "@/components/ordenes/new-order-dialog";
+import { NavItem } from "./components/nav-item";
 
 export function AppFooter() {
-  const [isNewOrderDialogOpen, setisNewOrderDialogOpen] = useState(false);
+  const [isNewOrderDialogOpen, setIsNewOrderDialogOpen] = useState(false);
 
   return (
     <footer
       data-slot="app-footer"
-      className="flex md:hidden h-14 shrink-0 items-center justify-around bg-background"
+      className="flex md:hidden h-16 shrink-0 items-stretch justify-around border-t border-border bg-background"
     >
       <NavItem href="/" icon={HomeIcon} label="Inicio" />
+      <NavItem href="/ordenes" icon={ScrollTextIcon} label="Órdenes" />
+      <button
+        onClick={() => setIsNewOrderDialogOpen(true)}
+        className="flex cursor-pointer flex-col items-center justify-center px-2"
+        aria-label="Nueva orden"
+      >
+        <span className="flex size-11 -translate-y-3 items-center justify-center rounded-full bg-brand text-white shadow-lg transition-transform active:scale-95">
+          <PlusIcon className="size-5" />
+        </span>
+      </button>
       <NavItem href="/clientes" icon={UsersIcon} label="Clientes" />
-      <OrderDialog
-        open={isNewOrderDialogOpen}
-        onOpenChange={setisNewOrderDialogOpen}
-      />
-      <NavItem href="/inventario" icon={PackageIcon} label="Inventario" />
       <NavItem href="/caja" icon={BanknoteIcon} label="Caja" />
+      <NewOrderDialog
+        open={isNewOrderDialogOpen}
+        onOpenChange={setIsNewOrderDialogOpen}
+      />
     </footer>
   );
 }

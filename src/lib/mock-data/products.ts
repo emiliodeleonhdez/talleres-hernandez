@@ -1,0 +1,55 @@
+import type { Product } from "./types";
+
+// Regletas — sellable inventory that accompanies guillotine blades.
+export const seedProducts: Product[] = [
+  {
+    id: "prod-1",
+    name: "Regleta de madera 60 cm",
+    description: "Regleta de encino para guillotina chica",
+    price: 85,
+    stock: 24,
+    active: true,
+    createdAt: "2025-11-03T09:00:00.000Z",
+    updatedAt: "2026-06-01T09:00:00.000Z",
+  },
+  {
+    id: "prod-2",
+    name: "Regleta de madera 92 cm",
+    description: "Regleta de encino para guillotina mediana",
+    price: 120,
+    stock: 11,
+    active: true,
+    createdAt: "2025-11-03T09:00:00.000Z",
+    updatedAt: "2026-06-08T09:00:00.000Z",
+  },
+  {
+    id: "prod-3",
+    name: "Regleta de madera 115 cm",
+    description: "Regleta de encino para guillotina grande",
+    price: 160,
+    stock: 4,
+    active: true,
+    createdAt: "2025-11-03T09:00:00.000Z",
+    updatedAt: "2026-06-10T09:00:00.000Z",
+  },
+  {
+    id: "prod-4",
+    name: "Regleta de polipropileno 92 cm",
+    description: "Regleta plástica de alta densidad, mayor duración",
+    price: 210,
+    stock: 8,
+    active: true,
+    createdAt: "2026-01-20T09:00:00.000Z",
+    updatedAt: "2026-05-22T09:00:00.000Z",
+  },
+  {
+    id: "prod-5",
+    name: "Regleta de polipropileno 115 cm",
+    description: "Regleta plástica para guillotina grande",
+    price: 265,
+    stock: 0,
+    active: true,
+    createdAt: "2026-01-20T09:00:00.000Z",
+    updatedAt: "2026-06-05T09:00:00.000Z",
+  },
+];

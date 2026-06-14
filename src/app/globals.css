@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-archivo);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -19,13 +19,20 @@
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
   --color-brand: var(--brand);
+  --color-gold: var(--gold);
   --color-fofo: var(--fofo);
   --color-warning: var(--warning);
+  --color-pending: var(--pending);
+  --color-pending-fg: var(--pending-fg);
+  --color-cancelled: var(--cancelled);
+  --color-cancelled-fg: var(--cancelled-fg);
   --color-ready: var(--ready);
   --color-received: var(--received);
   --color-received-fg: var(--received-fg);
   --color-delivered: var(--delivered);
   --color-delivered-fg: var(--delivered-fg);
+  --color-sub-nav-bg: var(--sub-nav-bg);
+  --color-sub-nav-border: var(--sub-nav-border);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -47,6 +54,9 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --text-2xs: 0.625rem;
+  /* Tall-dialog cap: viewport minus breathing room (use as max-h-dialog). */
+  --spacing-dialog: calc(100svh - 4rem);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -82,21 +92,57 @@
   --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
   --brand: oklch(0.3462 0.0736 256.04);
+  --gold: #8b6914;
   --fofo: oklch(0.4084 0.1165 38.17);
+  --pending: oklch(0.9419 0.0454 86.51);
+  --pending-fg: oklch(0.4793 0.0936 86.51);
+  --cancelled: oklch(0.9341 0.0156 17.55);
+  --cancelled-fg: oklch(0.4861 0.1262 17.55);
   --warning: oklch(0.9619 0.058 95.62);
   --ready: oklch(0.9319 0.0316 255.59);
   --received: oklch(0.9251 0.0071 88.65);
   --received-fg: oklch(0.3741 0.0087 67.56);
   --delivered: oklch(0.9505 0.0507 163.05);
   --delivered-fg: oklch(0.4318 0.0865 166.91);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sub-nav-bg: #f5f3ee;
+  --sub-nav-border: #d4cfc6;
+  --sidebar: var(--brand);
+  --sidebar-foreground: oklch(0.9601 0.0086 256.04);
+  --sidebar-primary: var(--gold);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-accent: oklch(0.4137 0.0736 256.04);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: var(--gold);
+}
+
+/*
+ * Signature element — "el filo": a hairline that tapers to a point,
+ * like the cross-section of a honed edge. Gold at the heel, navy along
+ * the body, vanishing at the tip.
+ */
+@utility filo-edge {
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--brand) 55%, transparent 98%);
+  clip-path: polygon(0 0, 0 100%, 100% 50%);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Grind-mark hatching — diagonal hairlines like grinding marks on steel. */
+@utility grind-texture {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--sub-nav-border) 0,
+    var(--sub-nav-border) 1px,
+    transparent 1px,
+    transparent 7px
+  );
 }
 
 .dark {
@@ -131,6 +177,10 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+body {
+  pointer-events: auto !important;
 }
 
 @layer base {

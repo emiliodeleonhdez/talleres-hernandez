@@ -1,74 +1,31 @@
-import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-
-export type OrderStatus = "en-proceso" | "listo" | "recibido" | "entregada";
-
-const statusConfig: Record<
-  OrderStatus,
-  { label: string; bg: string; fg: string; dot: string }
-> = {
-  "en-proceso": {
-    label: "En proceso",
-    bg: "bg-warning",
-    fg: "text-fofo",
-    dot: "bg-fofo",
-  },
-  listo: {
-    label: "Listo p/ entrega",
-    bg: "bg-ready",
-    fg: "text-brand",
-    dot: "bg-brand",
-  },
-  recibido: {
-    label: "Recibido",
-    bg: "bg-received",
-    fg: "text-received-fg",
-    dot: "bg-received-fg",
-  },
-  entregada: {
-    label: "Entregada",
-    bg: "bg-delivered",
-    fg: "text-delivered-fg",
-    dot: "bg-delivered-fg",
-  },
-};
+import { Folio } from "@/components/shared/folio";
+import { StatusBadge } from "@/components/shared/status-badge";
+import { formatDateTime } from "@/lib/format";
+import type { Order } from "@/lib/mock-data/types";
 
 interface OrderCardProps {
-  id: string;
-  status: OrderStatus;
-  customer: string;
-  product: string;
-  deliveryTime: string;
+  order: Order;
+  customerName: string;
+  serviceName: string;
 }
 
-export function OrderCard({
-  id,
-  status,
-  customer,
-  product,
-  deliveryTime,
-}: OrderCardProps) {
-  const { label, bg, fg, dot } = statusConfig[status];
-
+export function OrderCard({ order, customerName, serviceName }: OrderCardProps) {
   return (
-    <Link href={`/ordenes/${id}`} className="h-25 block">
-      <div className="flex flex-col justify-between p-3.5 bg-white rounded-lg w-full h-full border border-gray-500">
-        <div className="flex justify-between">
-          <span className="text-xs text-muted-foreground">{id}</span>
-          <Badge
-            variant="outline"
-            className={`${bg} ${fg} border-transparent flex gap-1 items-center`}
-          >
-            <div className={`size-2 rounded-full ${dot}`} />
-            <span>{label}</span>
-          </Badge>
+    <Link href={`/ordenes/${order.folio}`} className="block">
+      <div className="group flex flex-col gap-1.5 rounded-lg border border-border bg-card p-3.5 transition-colors hover:border-gold active:scale-95 transition-transform">
+        <div className="flex items-center justify-between gap-2">
+          <Folio folio={order.folio} className="text-xs text-muted-foreground" />
+          <StatusBadge status={order.status} />
         </div>
-        <span className="font-semibold">{customer}</span>
-        <div className="flex gap-3 text-xs">
-          <span className="text-muted-foreground">{product}</span>
-          <span>-</span>
-          <span className="text-muted-foreground">
-            Entrega a las {deliveryTime}
+        <span className="font-semibold leading-tight">{customerName}</span>
+        <div className="flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground">
+          <span>{serviceName}</span>
+          <span aria-hidden="true">·</span>
+          <span>
+            {order.status === "DELIVERED" && order.deliveredAt
+              ? `Entregada ${formatDateTime(order.deliveredAt)}`
+              : `Entrega ${formatDateTime(order.estimatedDelivery)}`}
           </span>
         </div>
       </div>
